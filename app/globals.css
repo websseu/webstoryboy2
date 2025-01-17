@@ -1,14 +1,45 @@
+@import url('https://websseu.github.io/fffont/fonts/NanumSquareNeo/NanumSquareNeo.css');
+@import url('https://websseu.github.io/fffont/fonts/NexonLv1Gothic/NexonLv1Gothic.css');
+@import url('https://websseu.github.io/fffont/fonts/GmarketSans/GmarketSans.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  --fontN: 'NanumSquareNeo', sans-serif;
+  --fontX: 'NexonLv1Gothic', sans-serif;
+  --fontG: 'GmarketSans', sans-serif;
+  --fontP: 'Poppins', sans-serif;
+}
+
+.nanumSquareNeo {
+  font-family: var(--fontN);
+}
+.nexonLv1Gothic {
+  font-family: var(--fontX);
+}
+.gmarketSans {
+  font-family: var(--fontG);
+}
+.poppins {
+  font-family: var(--fontP);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --black100: #111;
+    --black200: #444;
+    --black300: #666;
+    --black400: #bbb;
+    --black500: #eee;
+    --white100: #f1f1f1;
+    --white200: #e7e7e7;
+    --white300: #dddddd;
+    --white400: #d1d1d1;
+    --white500: #c7c7c7;
+    --background: 40, 9%, 93%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -68,5 +99,46 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  #header {
+    position: relative;
+  }
+  #header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 1px;
+    background-color: #00000038;
+    z-index: -1;
+  }
+
+  .header__nav {
+    @apply fixed md:absolute md:bottom-auto bottom-0 w-full md:top-[98px] z-50;
+  }
+  .header__nav ul {
+    @apply flex md:justify-center justify-evenly bg-slate-900/20 backdrop-blur-md md:bg-transparent md:backdrop-blur-0;
+  }
+  .header__nav ul li a {
+    @apply md:bg-background md:py-0 py-3 bg-transparent px-2 nanumSquareNeo font-bold text-sm inline-block;
+  }
+  .header__nav ul li:first-child a {
+    @apply pl-6;
+  }
+  .header__nav ul li:last-child a {
+    @apply pr-6;
+  }
+
+  .main__container {
+    @apply max-w-7xl mx-auto mt-7 sm:mt-14 p-4;
+  }
+
+  .footer__container {
+    @apply mx-auto max-w-7xl p-4 mt-20;
   }
 }
