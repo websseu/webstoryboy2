@@ -1,4 +1,5 @@
 import { APP_COPYRIGHT, APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
+import Link from 'next/link'
 
 export default async function Footer() {
   return (
@@ -7,6 +8,11 @@ export default async function Footer() {
         <h6 className='text-xl font-nanum font-fold mb-2'>{APP_NAME}</h6>
         <p className='text-zinc-500 md:w-1/3 w-full leading-5 text-sm mb-2'>
           {APP_DESCRIPTION}
+          <br />
+          문의사항은{' '}
+          <Link href={'/'} className='uline'>
+            클릭
+          </Link>
         </p>
         <p className='text-xs mt-1 text-zinc-500'>{APP_COPYRIGHT}</p>
       </div>

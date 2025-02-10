@@ -49,6 +49,7 @@ https://webstoryboy.com/
 ```
 npx create-next-app@latest ./
 npx shadcn@latest init
+npm i next-themes
 npm i react-icons
 npm i mongoose
 npm i mongodb
@@ -60,6 +61,7 @@ npm i bcryptjs
 npm i --save-dev @types/bcryptjs
 npm i react-hook-form
 npm i @hookform/resolvers
+
 
 npm i react-syntax-highlighter
 npm i --save-dev @types/react-syntax-highlighter

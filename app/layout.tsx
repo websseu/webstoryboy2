@@ -9,6 +9,7 @@ import {
 } from '@/lib/constants'
 import type React from 'react'
 import { Toaster } from '@/components/ui/toaster'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -60,10 +61,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='ko'>
+    <html lang='ko' suppressHydrationWarning>
       <body className={`${poppins.variable}`}>
         <Toaster />
-        {children}
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

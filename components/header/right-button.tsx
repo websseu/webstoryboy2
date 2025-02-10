@@ -1,11 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { auth } from '@/auth';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { SignOut } from '@/lib/actions/user.actions';
-import { cn } from '@/lib/utils';
-import { Gi3dGlasses } from 'react-icons/gi';
-import { LuDot } from 'react-icons/lu';
+import Image from 'next/image'
+import Link from 'next/link'
+import { auth } from '@/auth'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { SignOut } from '@/lib/actions/user.actions'
+import { cn } from '@/lib/utils'
+import { Gi3dGlasses } from 'react-icons/gi'
+import { LuDot } from 'react-icons/lu'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,10 +13,10 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu'
 
 export default async function RightButton() {
-  const session = await auth();
+  const session = await auth()
 
   return (
     <div className='absolute right-4'>
@@ -48,7 +48,7 @@ export default async function RightButton() {
         </DropdownMenuTrigger>
         {session ? (
           <DropdownMenuContent
-            className='w-56 mr-0 mt-2'
+            className='w-56 mr-0 mt-2 bg-background'
             align='end'
             forceMount
           >
@@ -96,7 +96,7 @@ export default async function RightButton() {
           </DropdownMenuContent>
         ) : (
           <DropdownMenuContent
-            className='w-56 mr-1 bg-gray-50'
+            className='w-56 mr-1 bg-gray-50 dark:bg-background'
             align='end'
             forceMount
           >
@@ -124,5 +124,5 @@ export default async function RightButton() {
         )}
       </DropdownMenu>
     </div>
-  );
+  )
 }
